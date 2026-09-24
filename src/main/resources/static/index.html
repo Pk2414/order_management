@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f2"><title>Campus Cafe — Good food, zero queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <section id="authView" class="auth-view">
+    <div class="auth-showcase">
+      <a class="brand brand-light" href="#"><span class="brand-mark">c.</span><span>campus<span class="brand-accent">cafe</span></span></a>
+      <div class="showcase-copy"><span class="eyebrow light-eyebrow">YOUR CAMPUS, SERVED</span><h1>Good food.<br>Zero queue.</h1><p>Your break should be about taking a break. Order ahead, swing by, and enjoy every minute.</p></div>
+      <div class="showcase-food" aria-hidden="true"><div class="food-orbit"></div><span class="food-big">🥪</span><span class="food-float food-one">🥤</span><span class="food-float food-two">🥟</span><span class="food-float food-three">🍋</span><span class="showcase-note">made fresh on campus <span>✳</span></span></div>
+      <div class="showcase-bottom"><span>FRESHLY MADE, EVERY DAY</span><span>EST. FOR STUDENTS ✳</span></div>
+    </div>
+    <div class="auth-panel"><div class="auth-mobile-brand brand"><span class="brand-mark">c.</span><span>campus<span class="brand-accent">cafe</span></span></div>
+      <div class="auth-card"><div class="auth-tabs"><button class="auth-tab active" data-mode="login">Sign in</button><button class="auth-tab" data-mode="signup">Create account</button></div>
+        <div class="auth-heading"><span class="eyebrow" id="authEyebrow">WELCOME BACK</span><h2 id="authTitle">Hey, good to see you.</h2><p id="authSubtitle">Sign in to pick up where your appetite left off.</p></div>
+        <form id="authForm" novalidate><label id="nameField" class="field hidden">Your name<input name="name" type="text" autocomplete="name" placeholder="e.g. Alex Morgan" maxlength="80"></label><label class="field">College email<input name="email" type="email" autocomplete="email" placeholder="you@college.edu" required></label><label class="field">Password<input name="password" type="password" autocomplete="current-password" placeholder="At least 8 characters" minlength="8" required></label><button class="button button-dark auth-submit" id="authSubmit" type="submit">Sign in <span>→</span></button><p class="auth-foot" id="authFoot">New around here? <button type="button" class="text-button" data-mode="signup">Create an account</button></p></form>
+      </div><div class="auth-legal">By continuing, you agree to our <a href="#" onclick="return false">Terms</a> &amp; <a href="#" onclick="return false">Privacy Policy</a>.</div>
+    </div>
+  </section>
+
+  <div id="appView" class="app-view hidden">
+    <header class="topbar"><a class="brand" href="#"><span class="brand-mark">c.</span><span>campus<span class="brand-accent">cafe</span></span></a><nav class="main-nav"><button class="nav-link active" data-page="menuPage">Menu</button><button class="nav-link" data-page="ordersPage">My orders</button></nav><div class="topbar-right"><span class="open-status"><i></i> Open now</span><button id="accountButton" class="account-button"><span class="avatar" id="avatar">A</span><span class="account-name" id="accountName">Student</span><span class="chevron">⌄</span></button><div id="accountMenu" class="account-menu hidden"><span id="accountEmail" class="account-email"></span><button id="logoutButton">Sign out <span>↗</span></button></div></div></header>
+    <main id="menuPage" class="page menu-page"><section class="hero"><div class="hero-copy"><span class="eyebrow">THE CAMPUS CAFE MENU</span><h1>Your next<br>good thing.</h1><p>Made with care. Ready when you are.<br>Skip the queue and make lunch yours.</p><a href="#menuSection" class="button button-dark hero-cta">Explore the menu <span>↓</span></a></div><div class="hero-art"><div class="hero-sticker sticker-top">FRESH<br>ON CAMPUS <span>✳</span></div><div class="hero-circle"><span>🥗</span></div><span class="hero-star">✳</span><div class="hero-sticker sticker-bottom"><span>✳</span> GOOD FOOD<br>GOOD MOOD</div></div><div class="hero-side-note">A LITTLE GOODNESS BETWEEN CLASSES — EVERY DAY</div></section>
+      <section id="menuSection" class="menu-section"><div class="section-heading"><div><span class="eyebrow">PICK YOUR PLEASE</span><h2>Made for your break.</h2></div><div class="menu-search"><span>⌕</span><input id="searchInput" type="search" placeholder="Find your favourite…" aria-label="Search menu"></div></div><div id="categoryFilters" class="category-filters"></div><div id="menuGrid" class="menu-grid"><div class="loading">Setting the table<span>✳</span></div></div></section>
+      <footer class="site-footer"><span class="brand-mark">c.</span><span>Made fresh between lectures. <span class="footer-spark">✳</span></span><span>GOOD FOOD, GOOD DAYS.</span></footer>
+    </main>
+    <main id="ordersPage" class="page orders-page hidden"><div class="orders-head"><span class="eyebrow">A LITTLE LOOK BACK</span><h1>Your orders.</h1><p>All the good stuff you’ve picked up along the way.</p></div><div id="ordersList" class="orders-list"></div></main>
+    <button id="cartFab" class="cart-fab hidden"><span class="cart-icon">▱</span><span><b id="cartCount">0</b> items in your bag</span><strong id="cartTotal">₹0</strong><span class="cart-arrow">→</span></button>
+  </div>
+  <div id="cartOverlay" class="overlay hidden"><section class="cart-drawer"><div class="drawer-head"><div><span class="eyebrow">YOUR GOOD STUFF</span><h2>Your bag <span id="drawerCount"></span></h2></div><button class="icon-button" id="closeCart" aria-label="Close bag">×</button></div><div id="cartItems" class="cart-items"></div><div class="drawer-bottom"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">₹0</strong></div><p>Pay when you pick up at the counter.</p><button id="placeOrder" class="button button-dark checkout-button">Place your order <span>→</span></button></div></section></div>
+  <script src="/app.js"></script>
+</body></html>
